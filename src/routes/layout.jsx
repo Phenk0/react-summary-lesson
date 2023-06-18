@@ -1,8 +1,8 @@
-import PostsList from "./components/posts-list.jsx";
-import MainHeader from "./components/main-header.jsx";
+import { Outlet } from "react-router-dom";
+import MainHeader from "../components/main-header.jsx";
 import { useState } from "react";
 
-function App() {
+const Layout = () => {
   const [isPosting, setIsPosting] = useState(false);
   const showNewPostFormHandler = () => {
     setIsPosting(true);
@@ -10,17 +10,14 @@ function App() {
   const hideNewPostFormHandler = () => {
     setIsPosting(false);
   };
+
   return (
     <>
       <MainHeader onCreatePost={showNewPostFormHandler} />
       <main>
-        <PostsList
-          isPosting={isPosting}
-          onHideNewPostForm={hideNewPostFormHandler}
-        />
+        <Outlet />
       </main>
     </>
   );
-}
-
-export default App;
+};
+export default Layout;

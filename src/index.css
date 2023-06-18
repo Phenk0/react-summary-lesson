@@ -21,3 +21,7 @@ body {
   color: #e6ddf9;
 }
 
+a {
+  text-decoration: none;
+  color: initial;
+}

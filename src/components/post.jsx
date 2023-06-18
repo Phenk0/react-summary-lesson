@@ -1,14 +1,17 @@
 import classes from "./post.module.css";
-const Post = ({ author, body }) => {
+import { Link } from "react-router-dom";
+const Post = ({ id, author, body }) => {
   return (
-    <li className={classes.post}>
-      <p className={classes.author}>{author}</p>
-      {body.split("\n").map((p, index) => (
-        <p className={classes.text} key={index}>
-          {p}
-        </p>
-      ))}
-    </li>
+    <Link to={id}>
+      <li className={classes.post}>
+        <p className={classes.author}>{author}</p>
+        {body.split("\n").map((p, index) => (
+          <p className={classes.text} key={index}>
+            {p}
+          </p>
+        ))}
+      </li>
+    </Link>
   );
 };
 export default Post;
